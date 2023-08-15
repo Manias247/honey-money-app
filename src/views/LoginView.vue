@@ -1,15 +1,17 @@
 <template>
-   <HeaderBar/>
-   <BackButton/>
+  <HeaderBar />
+  <BackButton />
   <div class="user-enter-container">
-   
-    
-    <form @submit.prevent="loginUser" class="register-form">
-    
+
   
+
+
+    <form @submit.prevent="loginUser" class="register-form">
+      <h1 v-if="greetUser"> {{ greeting }}</h1>
+
       <div class="user-input-box">
-       
-      
+
+
         <label for="username" class="input-heading">Username</label>
         <input type="text" id="username" class="main-input" v-model="username" autocomplete="off" required />
       </div>
@@ -22,15 +24,17 @@
 
         <button class="main-button login">Login</button>
       </div>
-   
+
     </form>
-  
+
   </div>
 </template>
 <script>
 import HeaderBar from '@/components/HeaderBar.vue';
-import { useAuthStore  } from '@/store/store';
+import { useAuthStore } from '@/store/store';
 import BackButton from '@/components/BackButton.vue';
+
+
 
 
 
@@ -39,58 +43,68 @@ export default {
   components: {
     HeaderBar,
     BackButton
+  }, setup() {
+    const auth = useAuthStore();
+    return { auth }
   },
   computed: {
- 
+    isLoggedIn() {
+      return this.auth.isLoggedIn;
+    },
+    isRegisteredIn(){
+      return this.auth.isRegisteredIn;
+    },
 
     user() {
-      const auth = useAuthStore();
-      const user = auth.user;
-      if (user) {
-        return { ...user };
-      }
-      return null;
+      return this.auth.user;
     },
-    currentPhoto(){
-      
-      return useAuthStore().selectedPhoto;
-    
-},
-
-  
-    },
-    setup(){
-      const auth = useAuthStore();
-      return { auth }
+    // greeting() {
+    //   return `Hello ${this.user.username}`;
+    // },
+ 
   },
-  
-  data() {
-    return {
+
+data() {
+  return {
+    username: "",
+    password: "",
+    greeting: "",
+   
+
     
-      password: "",
-  
+
+
+
+  }
+},
+methods: {
+  loginUser() {
+    const authStore = useAuthStore();
+    const user = authStore.users.find(user => user.username === this.username);
+    if (!user || user.password !== this.password) {
+      alert("Invalid username or password");
+      return;
+    }
+
+    try {
+      authStore.loginUser({ username: this.username, password: this.password });
+
+      this.$router.push("/UserProfile");
+
+    } catch (error) {
+      alert(error.message);
     }
   },
-  methods: {
-     loginUser() {
-      const authStore = useAuthStore();
-      const user = authStore.users.find(user => user.username === this.username);
-      if (!user || user.password !== this.password) {
-        alert("Invalid username or password");
-        return;
-      }
-  
-      try {
-        authStore.loginUser({ username: this.username, password: this.password});
-        this.$router.push("/UserProfile");
-      } catch (error) {
-        alert(error.message);
-      }
-    },
-    
 
-  
-  }
+  // greetUser() {
+  //   const authStore = useAuthStore();
+  //   const user = authStore.users.find(user => user.username === this.username);
+  //   this.greeting = user.username;
+  // }
+
+}
+
+
 }
 </script>
 <style></style>

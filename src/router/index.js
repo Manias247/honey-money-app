@@ -3,7 +3,6 @@ import WelcomeView from '@/components/WelcomeView.vue';
 import RegisterView from '@/views/RegisterView.vue';
 import LoginView from '@/views/LoginView.vue';
 import UserProfile from '@/views/UserProfile.vue';
-import ProfilePhotos from '@/components/ProfilePhotos.vue';
 import UsersView from '@/components/UsersView.vue';
 
 const routes = [
@@ -31,12 +30,7 @@ const routes = [
     path: "/UserProfile",
     name: "UserProfile",
     component: UserProfile,
-  },
-  {
-    path: "/ProfilePhotos",
-    name: "ProfilePhotos",
-    component: ProfilePhotos,
-  },
+  }
   
 ];
 const router = createRouter({

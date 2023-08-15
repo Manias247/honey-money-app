@@ -50,12 +50,14 @@ button {
   font-weight: bold;
   padding: 10px;
 
+
 }
 
 .main-button {
   color: aliceblue;
   width: 200px;
   height: 50px;
+  
 }
 
 .register-show {
@@ -66,6 +68,14 @@ button {
   font-weight: bold;
   padding: 10px;
   background-color: rgb(15, 37, 71);
-
+}
+.login, .register {
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+  
+}
+.register:hover, .login:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.5);
+  transition: all ease 0.2s;
 }
 </style>

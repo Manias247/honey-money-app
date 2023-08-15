@@ -4,7 +4,7 @@
       <h1 class="title">{{ mainHeading }}</h1>
 
     </div>
-    <img :src="thumbNail" alt="Profile Photo" class="thumbnail" />
+    <img v-if="thumbNail" :src="thumbNail" class="thumbnail" />
     
     <div class="hamburger">
       <div class="line"></div>
@@ -24,7 +24,9 @@ export default {
   },
   data() {
     return {
-      mainHeading: "Welcome to the Honey Money Tracker"
+      mainHeading: "Welcome to the Honey Money Tracker",
+      
+
     }
   },
   methods: {
@@ -57,4 +59,5 @@ header {
   height: 100px;
 
 }
+
 </style>

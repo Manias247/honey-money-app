@@ -35,6 +35,9 @@ button,
 .photo-item {
   cursor: pointer;
 }
+button, a {
+  border-radius: 10px;
+}
 
 img {
   filter: contrast(150%)
