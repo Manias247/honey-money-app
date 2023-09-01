@@ -78,11 +78,12 @@ export default {
       selectedPhoto: null,
 
       photos: [
-        { id: 0, filename: 'https://github.com/Manias247/honey-money/blob/main/src/components/images/images/bart.png?raw=true' },
-        { id: 1, filename: 'https://github.com/Manias247/honey-money/blob/main/src/components/images/images/homer.jpg?raw=true' },
-        { id: 2, filename: 'https://github.com/Manias247/honey-money/blob/main/src/components/images/images/lisa.png?raw=true' },
-        { id: 3, filename: 'https://github.com/Manias247/honey-money/blob/main/src/components/images/images/maggie.png?raw=true' },
-        { id: 4, filename: 'https://github.com/Manias247/honey-money/blob/main/src/components/images/images/merge.png?raw=true' },
+        { id: 0, filename: 'https://github.com/Manias247/honey-money-app/blob/main/src/views/images/bart.png?raw=true' },
+        { id: 1, filename: 'https://github.com/Manias247/honey-money-app/blob/main/src/views/images/homer.jpg?raw=true' },
+        { id: 2, filename: 'https://github.com/Manias247/honey-money-app/blob/main/src/views/images/lisa.png?raw=true' },
+        { id: 3, filename: 'https://github.com/Manias247/honey-money-app/blob/main/src/views/images/maggie.png?raw=true' },
+        { id: 4, filename: 'https://github.com/Manias247/honey-money-app/blob/main/src/views/images/merge.png?raw=true' },
+        { id: 5, filename: 'https://github.com/Manias247/honey-money-app/blob/main/src/views/images/montgomery.png?raw=true' },
       ],
 
     }
